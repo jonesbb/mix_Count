@@ -39,8 +39,8 @@ module MixCount
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
 
-    # Enable the asset pipeline (BBJ: changed to false to disable)
-    config.assets.enabled = false
+    # Enable the asset pipeline (BBJ: changed to false to disable, then re-enabled)
+    config.assets.enabled = true
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
