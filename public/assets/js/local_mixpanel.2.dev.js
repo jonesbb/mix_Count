@@ -950,11 +950,12 @@ console.log('accessing Bjones mixpanel lib');
 
         //bjones added function to determine if accessing from mobile browser
         mobile: function(browser) {
-            if (/Mobile/.test(browser)) {
-                windowConsole.log("mobile is true");
+            var temp1 = (_.includes(_.info.browser(), "Mobile"));
+            if (_.includes(_.info.browser(), "Mobile")) {
+                windowConsole.log("mobile is true -" + temp1);
                 return 'true';
             } else {
-                windowConsole.log("mobile is false");
+                windowConsole.log("mobile is false -" + temp1);
                 return 'false';
             }
         },
