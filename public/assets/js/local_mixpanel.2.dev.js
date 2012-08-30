@@ -54,10 +54,8 @@ console.log('accessing Bjones mixpanel lib');
 
                 // special super properties, used for persisting people stuff
                 , _set_queue_key        = "__mps"
-                , _add_queue_key        = "__mpa"
+                , _add_queue_key        = "__mpa";
 
-                // bjones additional super property for mobile
-                , mobileSuper           = false;
 
     // default config
     var default_config = {
