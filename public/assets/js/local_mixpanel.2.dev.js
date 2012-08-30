@@ -54,7 +54,10 @@ console.log('accessing Bjones mixpanel lib');
 
                 // special super properties, used for persisting people stuff
                 , _set_queue_key        = "__mps"
-                , _add_queue_key        = "__mpa";
+                , _add_queue_key        = "__mpa"
+
+                // bjones additional super property for mobile
+                , mobileSuper           = false;
 
     // default config
     var default_config = {
@@ -908,10 +911,12 @@ console.log('accessing Bjones mixpanel lib');
                 return "Chrome";
             } else if (_.includes(vend, "Apple")) {
                 if (_.includes(ua, "Mobile")) {
+                    mobileSuper = true  //bjones
                     return "iOS Mobile";
                 }
                 return "Safari";
             } else if (_.includes(ua, "Android")) {
+                    mobileSuper = true   //bjones             
                 return "Android Mobile";
             } else if (_.includes(vend, "KDE")) {
                 return "Konqueror";
@@ -960,9 +965,12 @@ console.log('accessing Bjones mixpanel lib');
                 '$referring_domain': _.info.referringDomain(document.referrer)
             };
 
+            //bjones - modified this section to print to console
             _.each(tempProps, function(val, key) {
                 windowConsole.log(key, val);
-            });            
+            });           
+            windowConsole.log("mobile? " + mobileSuper);
+ 
             return tempProps;
 
         },
