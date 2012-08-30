@@ -948,6 +948,17 @@ console.log('accessing Bjones mixpanel lib');
             }
         },
 
+        //bjones added function to determine if accessing from mobile browser
+        mobile: function(browser) {
+            if (/Mobile/.test(browser)) {
+                windowConsole.log("mobile is true");
+                return 'true';
+            } else {
+                windowConsole.log("mobile is false");
+                return 'false';
+            }
+        },
+
         referringDomain: function(referrer) {
             var split = referrer.split("/");
             if (split.length >= 3) {
@@ -962,15 +973,14 @@ console.log('accessing Bjones mixpanel lib');
                 '$os': _.info.os(),
                 '$os': _.info.browser(),
                 '$referrer': document.referrer,
-                '$referring_domain': _.info.referringDomain(document.referrer)
+                '$referring_domain': _.info.referringDomain(document.referrer),
+                '$mobile_prop': _.info.mobile()  //bjones added super prop
             };
 
             //bjones - modified this section to print to console
             _.each(tempProps, function(val, key) {
                 windowConsole.log(key, val);
-            });           
-            windowConsole.log("mobile? " + mobileSuper);
- 
+            });            
             return tempProps;
 
         },
