@@ -947,7 +947,7 @@ console.log('accessing Bjones mixpanel lib');
         },
 
         //bjones added function to determine if accessing from mobile browser
-        mobile: function(browser) {
+        mobile: function() {
             var temp1 = (_.includes(_.info.browser(), "Mobile"));
             if (_.includes(_.info.browser(), "Mobile")) {
                 windowConsole.log("mobile is true -" + temp1);
@@ -970,7 +970,7 @@ console.log('accessing Bjones mixpanel lib');
 
             var tempProps = {
                 '$os': _.info.os(),
-                '$os': _.info.browser(),
+                '$browser': _.info.browser(),
                 '$referrer': document.referrer,
                 '$referring_domain': _.info.referringDomain(document.referrer),
                 '$mobile_prop': _.info.mobile()  //bjones added super prop
